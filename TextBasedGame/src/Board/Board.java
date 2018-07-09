@@ -18,25 +18,27 @@ import javax.swing.JPanel;
  * four buttons(Play, Help, Exit, Setting).
  * @author Colin
  */
-public class Board {
+public class Board extends JFrame {
+	public Board() {
+	}
 	
 	/**
-	 * This is the frame used for the start up menu for the game
+	 * 
 	 */
-	private JFrame myFrame= new JFrame();
+	private static final long serialVersionUID = 1L;
+	
 	/**
 	 * This JPanel Holds all of the buttons and is placed into myFrame.
 	 */
 	private JPanel myButtonHolderPanel = new JPanel();
-	
 	
 	/**
 	 * Sets up myFrame with all needed values and calls a class to deal
 	 * with buttons.
 	 */
 	public void makeBoard() {	
-		myFrame.setVisible(true);
-		myFrame.setSize(500, 500);
+		setVisible(true);
+		setSize(500, 500);
 		makeButtons();
 	}
 	
@@ -52,7 +54,8 @@ public class Board {
 		myButtonHolderPanel.add(Setting);
 		myButtonHolderPanel.add(Help);
 		exitButton();
-		myFrame.add(myButtonHolderPanel, BorderLayout.CENTER);
+		
+		getContentPane().add(myButtonHolderPanel, BorderLayout.CENTER);
 	}
 	
 	/**
@@ -67,7 +70,6 @@ public class Board {
             public void actionPerformed(ActionEvent e) {
             	System.exit(0);
             }
-
         });
 		myButtonHolderPanel.add(Exit);
 	}
